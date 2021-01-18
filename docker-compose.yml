@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  hello:
+    image: dockercloud/hello-world
+    ports:
+    - "8081:80"
+    networks:
+    - web
+
+  lb:
+    image: haproxy:alpine
+    ports:
+    - 8080:80
+    volumes:
+    - "./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
+    networks:
+    - web
+
+networks:
+  web:
+    external: true
