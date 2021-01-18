@@ -2,11 +2,11 @@ version: "3"
 
 services:
   hello:
-    image: dockercloud/hello-world
-    ports:
-    - "8081:80"
+    image: httpd
     networks:
     - web
+    volumes:
+    - "./httpd.conf:/usr/local/apache2/conf/httpd.conf"
 
   lb:
     image: haproxy:alpine
