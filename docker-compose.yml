@@ -3,8 +3,6 @@ version: "3"
 services:
   hello:
     image: dockercloud/hello-world
-    ports:
-    - "8081:80"
     networks:
     - web
 
